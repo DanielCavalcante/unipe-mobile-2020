@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet, Switch} from 'react-native';
 import axios from 'axios';
+import moment from 'moment';
 
 const url = 'https://node-todo-dev.herokuapp.com/api/todos';
 
@@ -21,7 +22,9 @@ export default (props) => {
     <View key={props.id} style={styles.container}>
       <View style={styles.leftContainer}>
         <Text style={styles.title}>{props.description}</Text>
-        <Text style={styles.subTitle}>{props.date}</Text>
+        <Text style={styles.subTitle}>
+          {moment(props.date).format('DD/MM/YYYY')}
+        </Text>
       </View>
       <View>
         <Switch
@@ -63,7 +66,7 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     color: '#666',
-    fontSize: 12,
+    fontSize: 14,
     marginTop: 5,
   },
 });

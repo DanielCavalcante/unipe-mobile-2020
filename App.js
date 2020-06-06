@@ -2,6 +2,7 @@ import React from 'react';
 import {Router, Scene, Stack, Actions} from 'react-native-router-flux';
 import Home from './src/screens/Home';
 import Todos from './src/screens/Todos';
+import 'react-native-gesture-handler';
 
 const App: () => React$Node = () => {
   return (

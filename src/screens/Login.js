@@ -17,7 +17,6 @@ export default () => {
   }
 
   const credentials = {
-    // clientId: '',
     appId: '1:981593524298:ios:487a2e40918407f409feb3',
     apiKey: 'AIzaSyAzENW_0ONxCJh_yaL-1KH0bt7IaYOshBw',
     authDomain: 'back-end-as-service.firebaseapp.com',

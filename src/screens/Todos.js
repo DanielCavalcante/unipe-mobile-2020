@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet, ToastAndroid, Platform} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import Card from '../components/Card';
 import axios from 'axios';
 
@@ -16,6 +16,7 @@ export default () => {
   function renderCards() {
     return todos.map((todo, index) => (
       <Card
+        todo={todo}
         description={todo.description}
         date={todo.createdAt}
         key={index}

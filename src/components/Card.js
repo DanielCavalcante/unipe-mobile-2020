@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, Switch} from 'react-native';
+import {View, Text, StyleSheet, Switch, TouchableOpacity} from 'react-native';
+import {Actions} from 'react-native-router-flux';
 import axios from 'axios';
 import moment from 'moment';
 
@@ -18,13 +19,18 @@ export default (props) => {
       }
     });
   }
+  function handleScreen() {
+    Actions.todoDetail({todo: props.todo});
+  }
   return (
     <View key={props.id} style={styles.container}>
       <View style={styles.leftContainer}>
-        <Text style={styles.title}>{props.description}</Text>
-        <Text style={styles.subTitle}>
-          {moment(props.date).format('DD/MM/YYYY')}
-        </Text>
+        <TouchableOpacity onPress={handleScreen}>
+          <Text style={styles.title}>{props.description}</Text>
+          <Text style={styles.subTitle}>
+            {moment(props.date).format('DD/MM/YYYY')}
+          </Text>
+        </TouchableOpacity>
       </View>
       <View>
         <Switch

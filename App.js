@@ -1,33 +1,19 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  SafeAreaView,
-  TouchableOpacity,
-  Button,
-} from 'react-native';
+import {Router, Scene, Stack, Actions} from 'react-native-router-flux';
+import Home from './src/screens/Home';
+import Todos from './src/screens/Todos';
 
 const App: () => React$Node = () => {
   return (
     <>
-      <SafeAreaView>
-        <View style={styles.container}>
-          <Button title="Entrar" onPress={() => alert('Opa')}></Button>
-        </View>
-      </SafeAreaView>
+      <Router>
+        <Stack key="root" headerLayoutPreset="center">
+          <Scene key="home" initial={true} component={Home} hideNavBar={true} />
+          <Scene key="todos" component={Todos} hideNavBar={false} />
+        </Stack>
+      </Router>
     </>
   );
 };
 
 export default App;
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#CCC',
-    height: '100%',
-  },
-  title: {
-    fontSize: 30,
-  },
-});
